@@ -1,0 +1,44 @@
+@media only screen and (max-width:700px) {
+    *root{
+        line-height: 1rem;
+    }
+    .btn{
+        font-size: small;
+        padding: 3px 10px;
+    }
+    /* --------------- */
+    #navbar .container{
+        height: max-content;
+        font-size: small;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    #navbar ul{
+        padding: 5px;
+    }
+    /* =========== */
+    #hero .container{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 40px;
+        text-align: center;
+        font-size: medium;
+    }
+    #hero .container h1{
+        font-size: larger;
+        font-weight: 600;
+    }
+    #hero #left-content>img{
+        max-width: 100%;
+    }
+    /* ========= */
+    #skills .content{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+    }#skills .content i{
+        padding:20px 5px ;
+    }
+}

@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&family=Play&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    line-height: 2rem;
+}
+:root{
+    --primary-color:#3B82F6;
+    --secondary--color:#374151;
+    --ternary-color:#F3F4F6;
+}
+body{
+    font-family: kumbh sans;
+    background: var(--ternary-color);
+    color: var(--secondary--color);
+}
+.container{
+    max-width: 1100px;
+}
+/* utilities */
+a{
+    text-decoration: none;
+    display:inline-block;
+    color: var(--secondary--color);
+}
+li{
+    list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+    padding: 5px 0;
+}
+.btn{
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 20px;
+    border-radius: 5px;
+    background: var(--secondary--color);
+    color: var(--ternary-color);
+}
+.btn:hover{
+    box-shadow: rgb(22, 21, 21) 1.95px 1.95px 2.6px;
+    transform: scale(0.96);
+    background-color: var(--primary-color);
+}
+.current,i:hover{
+    color: var(--primary-color);
+    transform: scale(0.98);
+}
+/* --------------------------------- */
+.dark_mode{
+    background:var(--secondary--color);
+    color: var(--ternary-color);
+}
+.dark_mode a{
+    color: var(--ternary-color);
+}
+.dark_mode .btn{
+    background: var(--ternary-color);
+    color: var(--secondary--color);
+}
+.dark_mode .btn:hover{
+    color:var(--primary-color);
+}
+.dark_mode .current{
+    color: var(--primary-color);
+}
+
+/* -----navbar */
+
+#logo{
+    color: black;
+}
+#navbar{
+    padding: 10px 30px;
+}
+#navbar .container{
+    height: 70px;
+    margin: auto;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    text-align: center;
+}
+#navbar ul{
+    display: flex;
+    padding: 20px 10px;
+    align-items: center;
+    justify-content: center;
+}
+#navbar ul li{
+    margin-left: 20px;
+}
+
+#navbar ul li a:hover{
+    border-bottom: 2px solid var(--primary-color);
+    transform: scale(0.9);
+}
+#switcher{
+    width: 25px;
+    cursor: pointer;
+}
+/* =================intro section=========================== */
+/* =========using flexbox */
+#hero .container{
+    padding: 10px 50px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 625px;
+    text-align: justify;
+}
+#hero #right-content, #left-content{
+    width: 50%;
+}
+#hero #left-content>img{
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: cover;
+    box-shadow: rgba(152, 152, 158, 0.2) 0px 7px 29px 0px;
+    border-radius:15px;
+}
+/* ==using grid==
+#hero .container{
+    padding: 50px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+#hero #left-content>img{
+    max-width: 100%;
+} 
+<img style='height: 100%; width: 100%; object-fit: contain'/>---refer later */
+
+/* ==================skills section============== */
+#skills .container{
+    margin: auto;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+#skills .content{
+    display: flex;
+    font-size: 50px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px  solid;
+}
+#skills .content i{
+    padding: 25px ;
+}
+/* =================projects and blogs====================== */
+#probe .container{
+    margin: auto;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+#probe .container .content{
+    padding: 30px 20px;
+    border-bottom: 3px  solid;
+}
+/* ================footer=============================== */
+footer{
+    display: flex;
+    color: var(--secondary-color);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+footer .content{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 10px 0px;
+}
+footer .content >*{
+    margin: 20px;
+}
+
+
+
