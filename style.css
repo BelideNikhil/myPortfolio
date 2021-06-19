@@ -113,6 +113,17 @@ h1,h2,h3,h4,h5,h6,p{
 }
 /* =================intro section=========================== */
 /* =========using flexbox */
+/* 
+#puller{
+    animation: pulling 5s ease-out forwards;
+    width: 30%;
+    transform: translateX(-1000px);
+}
+#puller img{
+    width: 100%;
+    height: 30%;
+} */
+
 #hero .container{
     padding: 10px 50px;
     margin: auto;
@@ -133,6 +144,12 @@ h1,h2,h3,h4,h5,h6,p{
         transform: translateX(0);
     }
 }
+/* 
+@keyframes pulling {
+    to{
+        transform: translateX(+2500px);
+    }
+} */
 
 #hero #left-content>img{
     max-width: 85%;
