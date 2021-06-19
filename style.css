@@ -158,6 +158,26 @@ h1,h2,h3,h4,h5,h6,p{
     box-shadow: rgba(152, 152, 158, 0.2) 0px 7px 29px 0px;
     border-radius:15px;
 }
+
+#handwave {
+    animation: waver 2.25s 2.5s infinite; 
+     /*what transform-origin does is that it will change the origin  */
+     /* here we are changing origin to a point which is 75% from left and 75% from top so tha we lock the bottom from moving while we wave */
+    transform-origin:75% 75%;
+    /* we are adding inline-block so that the animation is withinn the element set properties */
+    display: inline-block;
+}
+@keyframes waver {
+    0% { transform: rotate( 0deg)}
+    10% { transform: rotate(14deg)} 
+    20% { transform: rotate(-2deg)}
+    30% { transform: rotate(14deg)}
+    40% { transform: rotate(-4deg)}
+    50% { transform: rotate(14deg)}
+    60% { transform: rotate(0deg)} 
+    100% { transform: rotate(0deg)}
+}
+  
 /* ==using grid==
 #hero .container{
     padding: 50px;
