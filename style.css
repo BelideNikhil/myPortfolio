@@ -40,16 +40,35 @@ h1,h2,h3,h4,h5,h6,p{
 }
 .btn{
     display: inline-block;
-    margin-top: 15px;
-    padding: 5px 20px;
+    margin-top: 12px;
+    padding: 5px 15px;
     border-radius: 5px;
     background: var(--secondary--color);
     color: var(--ternary-color);
+    font-size: 14px;
+    font-weight: 600;
+}
+.btn_opp{
+    background:var(--ternary-color);
+    color: var(--secondary--color);
+    display: inline-block;
+    margin-top: 12px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 5px;
 }
 .btn:hover{
     box-shadow: rgb(22, 21, 21) 1.95px 1.95px 2.6px;
     transform: scale(0.96);
     background-color: var(--primary-color);
+}
+.btn_opp:hover{
+    box-shadow: rgb(22, 21, 21) 1.95px 1.95px 2.6px;
+    transform: scale(0.96);
+    background-color: var(--primary-color);
+    color:var(--ternary-color)
 }
 .current,i:hover{
     color: var(--primary-color);
@@ -70,11 +89,21 @@ h1,h2,h3,h4,h5,h6,p{
 .dark_mode .btn:hover{
     color:var(--primary-color);
 }
+.dark_mode .btn_opp{
+    background: var(--secondary--color);
+    color: var(--ternary-color);
+}
+.dark_mode .btn_opp:hover{
+    color:var(--primary-color);
+}
 .dark_mode .current{
     color: var(--primary-color);
 }
 .dark_mode #logo{
     color: var(--ternary-color);
+}
+.dark_mode .content_holder{
+    color: black;
 }
 
 /* -----navbar */
@@ -108,21 +137,10 @@ h1,h2,h3,h4,h5,h6,p{
     transform: scale(0.9);
 }
 #switcher{
-    width: 25px;
+    width: 26px;
     cursor: pointer;
 }
 /* =================intro section=========================== */
-/* =========using flexbox */
-/* 
-#puller{
-    animation: pulling 5s ease-out forwards;
-    width: 30%;
-    transform: translateX(-1000px);
-}
-#puller img{
-    width: 100%;
-    height: 30%;
-} */
 
 #hero .container{
     padding: 10px 50px;
@@ -211,7 +229,47 @@ h1,h2,h3,h4,h5,h6,p{
 #skills .content i{
     padding: 25px ;
 }
+/*============== projects page ==============*/
+.project_card{
+    margin: auto;
+    max-width: 450px;
+    height: 360px;
+    position: relative;
+    margin-bottom: 150px;  
+}
+.image_holder{
+    width: 100%;
+    height: 100%;
+}
+.image_holder img{
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.39) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
 
+.content_holder{
+    position: absolute;
+    bottom:-120px;
+    left:50%;
+    margin-left: -40%;
+    width: 80%;
+    padding: 10px 20px ;
+    background: rgb(175, 173, 173);
+    color:#374151;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.content_holder p{
+    font-size: 14px;
+}
+/* ================blogs=============================== */
+
+#blog_anime{
+    width: 400px;
+    border-radius: 5px;
+}
 /* ================footer=============================== */
 footer{
     display: flex;

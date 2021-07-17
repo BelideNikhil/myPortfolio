@@ -46,4 +46,21 @@
     }#skills .content i{
         padding:20px 5px ;
     }
+   
+}
+@media only screen and (max-width:400px) {
+     /* projects */
+     .project_card{
+        margin: auto;
+        max-width: 350px;
+        height: 320px;
+        margin-bottom: 100px;
+    }
+    .content_holder{
+        left:50%;
+        margin-left: -45%;
+        width: 90%;
+        padding: 10px;
+        bottom:-90px;
+    }
 }
