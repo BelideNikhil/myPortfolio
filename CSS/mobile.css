@@ -10,14 +10,19 @@
         padding: 3px 10px;
     }
     /* --------------- */
-    #navbar .container{
+    #navbar {
         height: max-content;
         font-size: small;
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        margin: auto;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
     }
     #navbar ul{
-        padding: 5px;
+        padding: 0;
     }
     /* =========== */
     #hero .container{
