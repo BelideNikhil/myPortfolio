@@ -1,4 +1,4 @@
-@media only screen and (max-width:700px) {
+@media only screen and (max-width:850px) {
     *root{
         line-height: 1rem;
     }
@@ -28,7 +28,7 @@
     #hero .container{
         display: flex;
         flex-direction: column;
-        padding: 10px 40px;
+        padding: 10px;
         margin-bottom: 40px;
         text-align: center;
         font-size: medium;
@@ -40,6 +40,13 @@
     }
     #hero #left-content>img{
         max-width: 100%;
+    }
+    /* projects */
+    .all_projects{
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 15px;
+        margin: auto;
     }
     /* ========= */
     #skills .content{
@@ -55,9 +62,15 @@
 }
 @media only screen and (max-width:400px) {
      /* projects */
+     .all_projects{
+         margin: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 0px;
+    }
      .project_card{
         margin: auto;
-        max-width: 350px;
+        max-width: 340px;
         height: 320px;
         margin-bottom: 100px;
     }
