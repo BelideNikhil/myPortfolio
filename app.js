@@ -1,9 +1,3 @@
-var buttOn=document.querySelector("#switcher");
-
-// defining a key in browser and setting default
-let locale=localStorage.getItem("darkmode")
-console.log(locale)
-
 
 function enableDark(){
     document.body.classList.add("dark_mode");
@@ -17,7 +11,7 @@ function disableDark(){
     localStorage.setItem("darkmode",'disabled-state')
 }
 
-// checking on click and changing
+let buttOn=document.querySelector("#switcher");
 buttOn.addEventListener("click", function(){
     locale=localStorage.getItem("darkmode");
     if(locale!='enabled-state'){
@@ -28,7 +22,13 @@ buttOn.addEventListener("click", function(){
     }
 })
 
-// keeping it enabled on page reload
+//getting LC data  keeping it enabled if present on page reload
+let locale=localStorage.getItem("darkmode")
 if(locale==='enabled-state'){
     enableDark()
 }
+
+
+
+
+
