@@ -61,12 +61,12 @@ h1,h2,h3,h4,h5,h6,p{
     margin-left: 5px;
 }
 .btn:hover{
-    box-shadow: rgb(22, 21, 21) 1.95px 1.95px 2.6px;
+    box-shadow: rgb(0, 0, 0) 3px 3px 3px;
     transform: scale(0.96);
     background-color: var(--primary-color);
 }
 .btn_opp:hover{
-    box-shadow: rgb(22, 21, 21) 1.95px 1.95px 2.6px;
+    box-shadow: rgb(0, 0, 0) 3px 3px 3px;
     transform: scale(0.96);
     background-color: var(--primary-color);
     color:var(--ternary-color)
@@ -225,6 +225,28 @@ h1,h2,h3,h4,h5,h6,p{
     padding: 25px ;
 }
 /*============== projects page ==============*/
+.quote{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:30px;
+    text-align: center;
+}
+.markHolder{
+    padding:3px 7px;
+    margin-right: 8px;
+    border-bottom: 3px solid var(--primary-color);
+    border-radius: 10px;
+    font-size: small;
+    font-weight: 600;
+    text-align: center;
+    width: max-content;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    cursor: pointer;
+}
+.markHolder:hover{
+    box-shadow: var(--primary-color) 0px 0px 0px 1px;
+}
 .all_projects{
     margin:50px 150px;
     display: grid;
@@ -238,7 +260,6 @@ h1,h2,h3,h4,h5,h6,p{
     height: 360px;
     position: relative;
     margin-bottom: 150px;
-
     box-shadow: rgba(0, 0, 0, 0.808) 0px 2px 1px, rgba(0, 0, 0, 0.719) 0px 4px 2px, rgba(0, 0, 0, 0.658) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.616) 0px 32px 16px;}
 .image_holder{
     width: 100%;
