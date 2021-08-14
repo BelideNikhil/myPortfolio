@@ -4,7 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    line-height: 2rem;
+    line-height: 1.8rem;
 }
 :root{
     --primary-color:#3B82F6;
@@ -58,7 +58,7 @@ h1,h2,h3,h4,h5,h6,p{
     padding: 5px 15px;
     border-radius: 5px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-left: 5px;
 }
 .btn:hover{
@@ -298,6 +298,32 @@ h1,h2,h3,h4,h5,h6,p{
     width: 50%;
     border-radius: 5px;
 }
+
+/* each-blog-page */
+.blog-page{
+    margin: 1rem;
+}
+.blog-page .container{
+    text-align: justify;
+    font-weight: 500;
+    max-width: 700px;
+    
+}
+.blog-page img{
+    margin-top: 10px;
+    max-width: 100%;
+    border-radius: 10px;
+}
+.blog-page pre{
+    background-color: var(--secondary--color);
+    color: var(--ternary-color);
+    padding: 5px;
+    border-radius: 3px;
+    overflow-x:scroll;
+    box-shadow: rgba(255, 255, 255, 0.288) -2px -2px 2.6px;
+}
+
+
 /* ================footer=============================== */
 footer{
     display: flex;

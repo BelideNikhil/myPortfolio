@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikhil Belide | Blog Two</title>
+    <link rel="icon" href="./images/title-icon.jpg" type="image/icon type">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/mobile.css"></head>
+    <script src="https://kit.fontawesome.com/e057b28e7b.js" crossorigin="anonymous"></script>
+    
+<body>
+    <header>
+        <div class="container">
+            <div id="navbar">
+                <h1 id="logo">Nikhil Belide</h1>
+                <ul>
+                    <li><h4><a href="./index.html">HOME</a></h4></li>
+                    <li><h4><a href="./projects.html">PROJECTS</a></h4></li>
+                    <li><h4><a href="./blogs.html">BLOGS</a></h4></li>
+                    <li><h4><a href="./about.html">ABOUT ME</a></h4></li>
+                    <li><img src="./images/moon.png" alt="" id="switcher"></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section class="blog-page">
+        <div class="container">
+            <img src="./images/B2/zero.png" alt="">
+            <h1>Add <strong>Dark Mode toggle</strong> to a website.</h1>
+            <p><strong>Nikhil Belide</strong> 28 Jul. <i>8 min read.</i></p>
+            <hr>
+            <p>According to me every website should have a DARK MODE toggle.As most of the time we as developers, spend hours and hours working in front of our screens, having a dark theme option to a website will reduce the amount of eye strain during long sessions especially during the night.</p>
+            <p>So, lets take a look at how to add dark-theme toggle to a website using <strong>HTML</strong>, <strong>CSS</strong> and <strong>Vanilla JavaScript</strong>.</p>
+            <p>Here, we'll also be using browsers' <strong>local Storage</strong> to save the preferred state of the developer. This means that no matter how many times the page is reloaded or even closed, the browser will automatically switch the theme to dev's previous preferred state.</p>
+            <p>Below is how the browsers' local storage looks like.</p>
+            <img src="./images/B2/one.png" alt="">
+            <p>Before we get started lets discuss a few things about local storage. This basically stores data as key and value pairs and the value can be only be a string. So, even if you want to store an object, that needs to be converted to a string as well.</p>
+            <p>Here is an example another example where you will be able to see the <strong>key-value</strong> pairs.</p>
+            <img src="./images/B2/two.png" alt="">
+            <p>For now we'll have only one value as string so we don't need to worry a lot about the conversions.</p>
+            <p>The site that we are going to make is going to be very light on <strong>HTML</strong> and <strong>CSS</strong>.</p>
+            <p>Here are the site previews at different theme states.</p>
+            <img src="./images/B2/three.png" alt="">
+            <img src="./images/B2/four.png" alt="">
+            <p>The HTML body tag is going to be as follows.</p>
+<pre>
+&lt;div class="container"&gt;
+&lt;!-- header --&gt;
+&lt;header&gt;
+    &lt;h1&gt;Logo&lt;/h1&gt;
+    &lt;div id="right_data"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Home&lt;/li&gt;
+            &lt;li&gt;projects&lt;/li&gt;
+            &lt;li&gt;Blogs&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;img src="./moon.png" id="switcher"&gt;
+    &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;!-- section data --&gt;
+&lt;section&gt;
+    &lt;h1&gt;Dark Theme Swicther.&lt;/h1&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet.d&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;!-- footer --&gt;
+&lt;footer&gt;
+    &lt;p&gt;Lets Connect&lt;/p&gt;
+    &lt;ul id="social"&gt;
+        &lt;li&gt;Twitter&lt;/li&gt;
+        &lt;li&gt;LinkedIn&lt;/li&gt;
+        &lt;li&gt;Github&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/footer&gt;
+&lt;/div&gt;
+</pre>
+            <p>In the above HTML, all we did was create a static page with a Header, Footer and a section with some data.</p>
+            <p>The img tag with the <strong>id="switcher"</strong> and a source is the one that does our theme switching using <strong>JavaScript</strong>.</p>
+            <p>Now, lets look the <strong>CSS</strong>.</p>
+<pre>
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --primary-color:#fff;
+    --secondary-color:#000;
+}
+.dark_mode{
+    --primary-color:#000;
+    --secondary-color:#fff;
+}
+body{
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+}
+.container{
+    margin: auto;
+    max-width: 700px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+h1,h2,p{
+    padding: 10px 20px;
+}
+li{
+    cursor: pointer;
+    list-style: none;
+    margin-right: 15px;
+}
+img,svg{
+    width: 30px;
+    cursor: pointer;
+}
+header{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    text-align: center;
+}
+header ul{
+    display: flex;
+}
+#right_data{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+}
+footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+}
+footer ul{
+    display: flex;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --primary-color:#fff;
+    --secondary-color:#000;
+}
+.dark_mode{
+    --primary-color:#000;
+    --secondary-color:#fff;
+}
+body{
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+}
+.container{
+    margin: auto;
+    max-width: 700px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+h1,h2,p{
+    padding: 10px 20px;
+}
+li{
+    cursor: pointer;
+    list-style: none;
+    margin-right: 15px;
+}
+img,svg{
+    width: 30px;
+    cursor: pointer;
+}
+header{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    text-align: center;
+}
+header ul{
+    display: flex;
+}
+#right_data{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+}
+footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+}
+footer ul{
+    display: flex;
+}
+</pre>
+            <p>There are two things to look out for. One of them is <strong>:root</strong> which is CSS pseudo-class and it matches to the root element of the document which in our case is HTML.</p>
+            <p>Inside the :root we declared the colors that we want to use on our website and the advantage of doing this is that changing the color value in :root will affect the whole body which means we don't need to go to each and every line and change color if we decide change our website color.</p>
+            <p>Here is an example where all I did was following in CSS.</p>
+<pre>
+:root{
+    --primary-color:orange;
+    --secondary-color:rgb(20, 20, 20);
+}
+</pre>
+            <img src="./images/B2/five.png" alt="">
+            <p>The other is .dark_theme in CSS which we will be adding to our HTML body using JavaScript to change the colors only by a click</p>
+            <p>Now, moving on to the important part, JavaScript.</p>
+            <p>First step is to select the image with id id="switcher" and pass it on a variable and then we need to add an event listener to it.</p>
+            <p>let the variable be <strong>theme_switcher</strong>.</p>
+            <p><strong>Event Listener</strong>, as the name suggests will basically listen to an event like click, change, submit, mouse-over etc.</p>
+            <p>What we need is a click handler and when clicked we need to do something. For now lets console log <strong>"clicked"</strong>.</p>
+<pre>
+
+//selecting *img* of *id="switcher"* from DOM.
+let theme_switcher=document.querySelector("#switcher")
+//adding event listener to it
+theme_switcher.addEventListener("click",()=>{
+        console.log("clicked");
+})
+
+</pre>
+            <img src="./images/B2/six.png" alt="">
+            <p>As you see above, now the console shows clicked.</p>
+            <p>But what we want is to change the theme right and at the same time wee need to change the way the switcher ( i.e. the moon icon to sun icon) looks as well.</p>
+            <p>So, dark theme will have SUN icon and light theme will have MOON icon.</p>
+            <p>So, when click event is fired, we need to add .dark_theme class to the body tag so that the --primary- and --secondary color variables value change.</p>
+            <p>To add a class to body, below is the code.</p>
+<pre>
+
+document.body.classList.add("dark_mode").
+
+</pre>
+        <p>document.body.classList.toggle("dark_mode") can also be used which toggles the class on body tag but for now lets stick with <strong>.add</strong></p>
+        <p>Now if we add, we need to remove it as well right? for that we use the below line of code.</p>
+<pre>
+
+document.body.classList.remove("dark_mode").
+    
+</pre>
+            <p>This is how the body tag looks on light theme</p>
+            <img src="./images/B2/seven.png" alt="">
+            <p>And this is how the body tag looks on dark theme.</p>
+            <img src="./images/B2/eight.png" alt="">
+            <p>See the difference in icon as well. But how do we do that?</p>
+            <p>Remember the variable theme_switcher that we declared above? On DOM that is basically an image tag with an id switcher right? Correct.</p>
+            <p>We will change that img tags' source. How do we do it? Here is the code.</p>
+<pre>
+
+theme_switcher.setAttribute("src","./moon.png")
+
+</pre>  
+            <p>Notice the path or src inside it. It says moon.png while the HTML has sun.png. This is basically called changing the source.</p>
+            <p>setAttribute basically sets or to be precise, changes the src attribute of img tag to another image path when we click on the toggler.</p>
+            <p>Now lets look at the JavaScript code.</p>
+<pre>
+
+let theme_switcher=document.querySelector("#switcher")
+
+theme_switcher.addEventListener("click",()=>{
+    if(document.body.classList.contains("dark_mode")){
+
+        document.body.classList.remove("dark_mode")
+        theme_switcher.setAttribute("src","./moon.png")
+    }else{
+
+        document.body.classList.add("dark_mode")
+        theme_switcher.setAttribute("src","./sun.png")
+    }
+})
+
+</pre>
+            <p>So, what we are doing here is telling JavaScript that, whenever a click event is triggered then go and check if the classlist of body tag has dark_mode. If it has that class, It means that the dark theme is enabled. So, we will just remove the dark_mode class from the classlist of body and change the image tag source to sun icon.</p>
+            <p>If the classlist does not have any class called dark_mode which means that the theme is a light theme and since click event happened we switch to dark theme using *classList.add and then replace the img tag source to sun icon.</p>
+            <p>Lets clean the code a lttle bit using functions.</p>
+<pre>
+
+theme_switcher.addEventListener("click",()=>{
+    if(document.body.classList.contains("dark_mode")){
+        lightMode()
+    }else{
+        darkMode()
+    }
+})
+
+function darkMode(){
+    document.body.classList.add("dark_mode")
+    theme_switcher.setAttribute("src","./sun.png")
+}
+
+function lightMode(){
+    document.body.classList.remove("dark_mode")
+    theme_switcher.setAttribute("src","./moon.png")
+}
+
+</pre>
+            <p>This is it. Now our toggle icons will do the theme switching whenever we do the click event.</p>
+            <p>But there are two drawbacks here. First is that if the page is refreshed the theme goes back to light and the other is that if you have multiple pages on your website then it's body tags will not have the class of dark mode.</p>
+            <p>By solving the first problem we can resolve the second issue as well. And we do that using local storage.</p>
+            <p>As I said before storage deals with key-value pairs. Let out key be theme_state and value be disabled_state which means that the website is at system default.</p>
+            <p>Now to save a key-value pair to the storage we use,</p>
+<pre>
+
+localStorage.setItem("theme_state", "disabled_state")
+
+</pre>
+            <p>Here we are basically telling the browser that, take this key value pair and save them in storage.</p>
+            <p>The key is <strong>theme_state</strong> and the value is <strong> disabled_state</strong>.</p>
+            <p>Now, there is no point in saving to local storage if we can't access it. So we access/ get the data using getItem(key) which will return us the value and we need to store this in a varible to know what the value is.</p>
+<pre>
+
+let storageValue=localStorage.getItem("theme_state")
+
+</pre>
+            <p>This is the most important part.</p>
+            <p>Once we get the data from storage we need to change the value that key when click happens. But what if there our getItem command checks and finds out that the local storage is empty, which it will anyway for ever dev who runs this on his browser for the first time.</p>
+            <p>Then we need to set the local storage to default. So, lets make some change to the code.</p>
+<pre>
+
+let theme_switcher=document.querySelector("#switcher")
+
+let storageValue=localStorage.getItem("theme_state")
+if(storageValue===null){
+    localStorage.setItem("theme_state","disabled_state")
+}else if(storageValue==="enabled_state"){
+    darkMode()
+}
+
+
+theme_switcher.addEventListener("click",()=>{
+    storageValue=localStorage.getItem("theme_state")
+    if(storageValue==="disabled_state"){
+        darkMode()
+    }else{
+        lightMode()
+    }
+})
+
+function darkMode(){
+    localStorage.setItem("theme_state","enabled_state")
+    document.body.classList.add("dark_mode")
+    theme_switcher.setAttribute("src","./sun.png")
+}
+
+function lightMode(){
+    document.body.classList.remove("dark_mode")
+    localStorage.setItem("theme_state","disabled_state")
+    theme_switcher.setAttribute("src","./moon.png")
+}
+
+</pre>
+            <p>Oops! That's a lot of code. I know. Lets break it down.So, before you even run this code, this is what the storage looked like.</p>
+            <p>Once you run the code, what it is doing in the start itself is that it is going and fetching the value of the key theme_state, but it wont find any since the storage is actually empty. So, it'll return null. If it returns null then we'll set the theme as default which in our case is light mode.</p>
+            <p>This is what the storage looks like now.</p>
+            <img src="./images/B2/ten.png" alt="">
+            <p>Ok, so now we have set the storage on default but we need to change the value when click event happens right? Correct.</p>
+<pre>
+
+theme_switcher.addEventListener("click",()=>{
+    storageValue=localStorage.getItem("theme_state")
+    if(storageValue==="disabled_state"){
+        darkMode()
+    }else{
+        lightMode()
+    }
+})
+
+</pre>
+            <p>That is the reason we wrote this code where we are telling the system that when a click happens go and get keys' value and then we compare it with a string "disabled_state". If the fetched value is equal to "disabled_state" we need to switch the theme to dark mode and we are doing that by calling the dark_mode() function and the function code is as follows.</p>
+<pre>
+
+function darkMode(){
+    localStorage.setItem("theme_state","enabled_state")
+    document.body.classList.add("dark_mode")
+    theme_switcher.setAttribute("src","./sun.png")
+}
+
+</pre>
+            <p>Simple right. This is what the storage and the icon now look like.</p>
+            <img src="./images/B2/eleven.png" alt="">
+            <p>Now in a similar fashion we need to change storage value to disabled_state when click event is fired once again and we are doing that by calling the light_mode() function and the function code is as follows.</p>
+<pre>
+           
+function lightMode(){
+    document.body.classList.remove("dark_mode")
+    localStorage.setItem("theme_state","disabled_state")
+    theme_switcher.setAttribute("src","./moon.png")
+}
+
+</pre>
+            <p>That is it.</p>
+            <p><strong>Voila</strong>! Now you know how to create website with dark mode.</p>
+            <p>Few suggestions I'll make is that use .SVG format images/icons as they do look good even when compressed and are light in size. This will also result in faster website loading times.</p>
+            <p>Please comment your thoughts on dark mode and on this article as well.</p>
+            <p>Happy coding.</p>
+        </div>
+    </section>    
+    <footer>
+        <div class="container">
+            <div> 
+                <div><a href="https://twitter.com/Nikhil_Belide"  target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
+                <div><a href="https://github.com/BelideNikhil" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
+                <div><a href="https://www.linkedin.com/in/nikhilbelide/"  target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
+            </div>
+        </div>
+        <p>&#169; Nikhil Belide. Feel free to copy.</p>
+    </footer>
+    
+    <!-- ----------------------------------------------------------------------------------------------------------- -->
+
+    <script src="./app.js"></script>
+</body>

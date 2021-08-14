@@ -26,6 +26,7 @@
     }
     #navbar ul{
         padding: 0;
+        font-weight: 700;
     }
     /* =========== */
     #hero .container{
@@ -87,5 +88,8 @@
         width: 90%;
         padding: 10px;
         bottom:-90px;
+    }
+    .blog-page pre{
+        font-size: 0.8rem;
     }
 }
