@@ -192,13 +192,24 @@ h1,h2,h3,h4,h5,h6,p{
     60% { transform: rotate(0deg)} 
     100% { transform: rotate(0deg)}
 }
-  
+#threeSixty{
+    animation: rotateThreeSixty 4s linear infinite  ;
+}
+
+@keyframes rotateThreeSixty {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
 /* ==using grid==
 #hero .container{
     padding: 50px;
     margin: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2,1fr);
     justify-content: center;
     align-items: center;
     height: 600px;
@@ -211,7 +222,7 @@ h1,h2,h3,h4,h5,h6,p{
 /* ==================skills section============== */
 #skills .container{
     margin: auto;
-    padding: 10px 20px;
+    padding: 18px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -322,8 +333,6 @@ h1,h2,h3,h4,h5,h6,p{
     overflow-x:scroll;
     box-shadow: rgba(255, 255, 255, 0.288) -2px -2px 2.6px;
 }
-
-
 /* ================footer=============================== */
 footer{
     display: flex;
